@@ -1,9 +1,7 @@
-
 #%%
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import pathlib
 from sklearn import linear_model
 from sklearn.metrics import r2_score
 from sklearn.linear_model import BayesianRidge
@@ -13,13 +11,17 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import PolynomialFeatures
 
-#%%
-# Import Datasets
-path = pathlib.Path('plot.py').parent.resolve().parent.resolve()
-df = pd.read_csv(str(path) + "\data" + "\Data_FCR.csv")
-layers = {1: df[2:13], 5: df[14:35], 10: df[37:63], 15: df[66:92]}
 
-df = layers[1]
+#define the number of layers
+#one = 2:13
+#five = 14:35
+#ten = 37:63
+#fifteen = 66:92
+
+df = pandas.read_csv("Data_FCR.csv")
+df = df[66:92]
+
+print(df.head())
 
 X = df[['X1']]
 x = df.X1.values
